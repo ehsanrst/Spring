@@ -4,16 +4,36 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="helloWorld" class="com.Dotin.HelloWorld"
-          init-method="init" destroy-method="destroy">
-        <property name="message" value="Hello World!!!"/>
+    <bean id="helloWorld" class="com.Dotin.HelloWorld">
+        <property name="message1" value="Hello World!!!"/>
+        <property name="message2" value="Hello Second World!!!"/>
     </bean>
 
-    <bean class="com.Dotin.InitHelloWorld"/>
+    <bean id="helloIran" class="com.Dotin.HelloIran" parent="helloWorld">
+        <property name="message1" value="Hello Iran!"/>
+        <property name="message3" value="Salam Iran!"/>
+    </bean>
+
 
 </beans>
 
-        <!--configuration metadata that you supply to the IoC container to know:-->
-        <!--How to create a bean-->
-        <!--Bean's lifecycle details-->
-        <!--Bean's dependencies-->
+        <!--A child bean definition inherits configuration data from a parent
+         definition. The child definition can override some values, or add others,
+          as needed.-->
+
+        <!--Bean Definition Template-->
+        <!--You can create a Bean definition template, which can be used by
+         other child bean definitions without putting much effort.
+          While defining a Bean Definition Template, you should not
+           specify the class attribute and should specify abstract attribute
+            and should specify the abstract attribute with a value of true.
+             The parent bean cannot be instantiated on its own because it is
+              incomplete, and it is also explicitly marked as abstract.
+               When a definition is abstract like this, it is usable only as
+                a pure template bean definition that serves as a parent definition
+                 for child definitions.-->
+
+        <!-- <bean id="helloWorld" abstract = "true">
+                <property name="message1" value="Hello World!!!"/>
+                <property name="message2" value="Hello Second World!!!"/>
+             </bean> -->
