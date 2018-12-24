@@ -4,8 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean>
-
+    <bean id="textEditor" class="com.Dotin.TextEditor">
+        <constructor-arg ref="spellChecker"/>
     </bean>
+
+    <bean id="spellChecker" class="com.Dotin.SpellChecker"></bean>
 
 </beans>
