@@ -4,7 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="helloWorld" class="com.Dotin.HelloWorld" scope="singleton">
+    <bean id="helloWorld" class="com.Dotin.HelloWorld" init-method="init"
+          destroy-method="destroy">
+        <property name="message" value="Hello World!!!"/>
     </bean>
 
 </beans>
@@ -14,11 +16,8 @@
         <!--Bean's lifecycle details-->
         <!--Bean's dependencies-->
 
-        <!--The Spring Framework supports the following five scopes,
-         three of which are available only if you use a web-aware ApplicationContext.-->
-        <!--singleton,
-            prototype
-            (web-aware Spring ApplicationContext):
-            request,
-            session,
-            global-session-->
+        <!--If you have too many beans having initialization and/or destroy methods
+         with the same name, you don't need to declare init-method and destroy-method
+          on each individual bean. Instead, the framework provides the flexibility to
+           configure such situation using default-init-method and default-destroy-method
+            attributes on the <beans> element-->
