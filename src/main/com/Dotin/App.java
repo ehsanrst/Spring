@@ -4,33 +4,39 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * You need to create a Beans.xml Configuration file which acts as a cement
- * that glues the beans, i.e. the classes together.
- * This file needs to be created under the src directory
+ * Bean Scopes (singleton)
  */
 public class App {
     public static void main(String[] args) {
-        //Spring ApplicationContext Container (IoC)
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-        //ClassPathXmlApplicationContext() This API loads beans configuration file
-        HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
-        //getBean() This method uses bean ID to return a generic object
-        obj.getMessage();
-    }
+        HelloWorld objA = (HelloWorld) context.getBean("helloWorld");
 
-    /**
-     * The ApplicationContext container includes all functionality of the
-     * BeanFactoryContainer, so it is generally recommended over BeanFactory.
-     *
-     * The objects that form the backbone of your application and that are
-     * managed by the Spring IoC container are called beans.
-     *
-     * Spring IoC container is totally decoupled from the format in which
-     * this configuration metadata is actually written.
-     *
-     * three important methods to provide configuration metadata:
-     * XML based configuration file,
-     * Annotation-based configuration,
-     * Java-based configuration.
-     */
+        objA.setMessage("I'm Object A");
+        objA.getMessage();
+
+        HelloWorld objB = (HelloWorld) context.getBean("helloWorld");
+        objB.getMessage();
+        //if scope define as prototype result will be null for objB
+    }
 }
+
+/*
+  singleton:
+  This scopes the bean definition to a single instance per Spring
+  IoC container (default).
+  <p>
+  prototype:
+  This scopes a single bean definition to have any number of object instances.
+  <p>
+  request:
+  This scopes a bean definition to an HTTP request. Only valid in the context
+  of a web-aware Spring ApplicationContext.
+  <p>
+  session:
+  This scopes a bean definition to an HTTP session. Only valid in the context
+  of a web-aware Spring ApplicationContext.
+  <p>
+  global-session:
+  This scopes a bean definition to a global HTTP session. Only valid in the context
+  of a web-aware Spring ApplicationContext.
+  */

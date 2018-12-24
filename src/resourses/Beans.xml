@@ -4,17 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="helloWorld" class="com.Dotin.HelloWorld">
-        <property name="message" value="Hello World!!!"/>
+    <bean id="helloWorld" class="com.Dotin.HelloWorld" scope="singleton">
     </bean>
-
-    <!--The Beans.xml is used to assign unique IDs to different beans and to
-     control the creation of objects with different values without impacting
-     any of the Spring source files. For example, using the following file
-     you can pass any value for "message" variable and you can print different
-     values of message without impacting HelloWorld.java and MainApp.java files.
-     You can use <property> tag to pass the values of different variables used
-     at the time of object creation.-->
 
 </beans>
 
