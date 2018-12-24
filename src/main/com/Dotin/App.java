@@ -4,9 +4,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Bean Life Cycle
- * there are lists of the activities that take place behind the scene
- * between the time of bean Instantiation and its destruction
+ * Bean Post Processors
  */
 public class App {
     public static void main(String[] args) {
@@ -15,8 +13,5 @@ public class App {
         obj.getMessage();
 
         context.registerShutdownHook();
-        /* declared on the AbstractApplicationContext class.
-           This will ensure a graceful shutdown and call the
-           relevant destroy methods so resources are released.*/
     }
 }

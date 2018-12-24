@@ -4,10 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="helloWorld" class="com.Dotin.HelloWorld" init-method="init"
-          destroy-method="destroy">
+    <bean id="helloWorld" class="com.Dotin.HelloWorld"
+          init-method="init" destroy-method="destroy">
         <property name="message" value="Hello World!!!"/>
     </bean>
+
+    <bean class="com.Dotin.InitHelloWorld"/>
 
 </beans>
 
@@ -15,9 +17,3 @@
         <!--How to create a bean-->
         <!--Bean's lifecycle details-->
         <!--Bean's dependencies-->
-
-        <!--If you have too many beans having initialization and/or destroy methods
-         with the same name, you don't need to declare init-method and destroy-method
-          on each individual bean. Instead, the framework provides the flexibility to
-           configure such situation using default-init-method and default-destroy-method
-            attributes on the <beans> element-->
