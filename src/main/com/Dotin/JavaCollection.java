@@ -5,6 +5,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+/*
+We need to define setter methods in such a way that they should be able to
+ handle references as well.
+ */
 public class JavaCollection {
     List addressList;
     Set addressSet;

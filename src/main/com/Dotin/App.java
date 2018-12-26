@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Injecting Collection (injecting Bean value)
+ * Injecting Collection (injecting Bean References)
  */
 public class App {
     public static void main(String[] args) {

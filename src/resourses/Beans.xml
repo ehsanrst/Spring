@@ -4,50 +4,36 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="javaCollection" class="com.Dotin.JavaCollection">
+    <!-- <bean id="javaCollection" class="com.Dotin.JavaCollection">-->
 
-        <!--Injecting Bean Value-->
+    <!--Injecting Bean References-->
 
-        <!-- results in a setAddressList call-->
-        <property name="addressList">
+    <!-- Passing bean reference  for java.util.List -->
+    <!--<property name = "addressList">
             <list>
-                <value>Iran</value>
-                <value>UK</value>
-                <value>USA</value>
-                <value>Iraq</value>
+                <ref bean = "address1"/>
+                <ref bean = "address2"/>
+                <value>Pakistan</value>
             </list>
-        </property>
+        </property>-->
 
-        <!-- results in a setAddressSet call-->
-        <property name="addressSet">
+    <!-- Passing bean reference  for java.util.Set &ndash;&gt;-->
+    <!--<property name = "addressSet">
             <set>
-                <value>Iran</value>
-                <value>UK</value>
-                <value>USA</value>
-                <value>USA</value>
+                <ref bean = "address1"/>
+                <ref bean = "address2"/>
+                <value>Pakistan</value>
             </set>
-        </property>
+        </property>-->
 
-        <!-- results in a setAddressMap call-->
-        <property name="addressMap">
+    <!-- Passing bean reference  for java.util.Map &ndash;&gt;-->
+    <!--<property name = "addressMap">
             <map>
-                <entry key="1" value="Iran"/>
-                <entry key="2" value="Pakistan"/>
-                <entry key="3" value="India"/>
-                <entry key="4" value="India"/>
+                <entry key = "one" value = "INDIA"/>
+                <entry key = "two" value-ref = "address1"/>
+                <entry key = "three" value-ref = "address2"/>
             </map>
         </property>
-
-        <!-- results in a setAddressProp call-->
-        <property name="addressProp">
-            <props>
-                <prop key="one">Iran</prop>
-                <prop key="one">Iran</prop>
-                <prop key="two">UK</prop>
-                <prop key="three">Canada</prop>
-                <prop key="four">China</prop>
-            </props>
-        </property>
-    </bean>
+    </bean>-->
 
 </beans>
