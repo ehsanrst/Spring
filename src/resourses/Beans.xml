@@ -8,6 +8,7 @@
     <!--To turn on Annotation wiring-->
     <context:annotation-config/>
 
-    <!-- bean definitions go here -->
+    <bean id="textEditor" class="com.Dotin.TextEditor"></bean>
+    <bean id="spellChecker" class="com.Dotin.SpellChecker"></bean>
 
 </beans>
