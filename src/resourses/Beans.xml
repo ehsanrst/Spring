@@ -8,6 +8,9 @@
     <!--To turn on Annotation wiring-->
     <context:annotation-config/>
 
-    <!-- bean definitions go here -->
+    <bean id="student" class="com.Dotin.Student">
+        <property name="name" value="Ehsan"/>
+        <!--Can pass No value for age property-->
+    </bean>
 
 </beans>
