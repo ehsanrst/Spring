@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean>
+    <bean id="javaCollection" class="com.Dotin.JavaCollection">
 
+        <!--Injecting Bean Value-->
+
+        <!-- results in a setAddressList call-->
+        <property name="addressList">
+            <list>
+                <value>Iran</value>
+                <value>UK</value>
+                <value>USA</value>
+                <value>Iraq</value>
+            </list>
+        </property>
+
+        <!-- results in a setAddressSet call-->
+        <property name="addressSet">
+            <set>
+                <value>Iran</value>
+                <value>UK</value>
+                <value>USA</value>
+                <value>USA</value>
+            </set>
+        </property>
+
+        <!-- results in a setAddressMap call-->
+        <property name="addressMap">
+            <map>
+                <entry key="1" value="Iran"/>
+                <entry key="2" value="Pakistan"/>
+                <entry key="3" value="India"/>
+                <entry key="4" value="India"/>
+            </map>
+        </property>
+
+        <!-- results in a setAddressProp call-->
+        <property name="addressProp">
+            <props>
+                <prop key="one">Iran</prop>
+                <prop key="one">Iran</prop>
+                <prop key="two">UK</prop>
+                <prop key="three">Canada</prop>
+                <prop key="four">China</prop>
+            </props>
+        </property>
     </bean>
 
 </beans>

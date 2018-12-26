@@ -1,57 +1,34 @@
 package com.Dotin;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Injecting Collection (injecting Bean value)
+ */
 public class App {
     public static void main(String[] args) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        JavaCollection javaCollection = (JavaCollection) context.getBean("javaCollection");
 
+        javaCollection.getAddressList();
+        javaCollection.getAddressSet();
+        javaCollection.getAddressMap();
+        javaCollection.getAddressProp();
     }
 }
 
 /*
-When writing a complex Java application, application classes should be
- as independent as possible of other Java classes to increase the possibility
-  to reuse these classes and to test them independently of other classes while
-   unit testing.
-    Dependency Injection (or sometime called wiring) helps in gluing these
-     classes together and at the same time keeping them independent.
+what if you want to pass plural values like Java Collection types such as
+ List, Set, Map, and Properties.
+  To handle the situation, Spring offers four types of collection configuration
+   elements which are as follows:
+    <list> : helps in wiring ie injecting a list of values, allowing duplicates.
+    <set> : helps in wiring a set of values but without any duplicates.
+    <map> : can be used to inject a collection of name-value pairs where name and value can be of any type.
+    <props> : can be used to inject a collection of name-value pairs where the name and value are both Strings.
 
-Consider you have an application which has a text editor component and you
- want to provide a spell check:
-
- public class TextEditor {
-   private SpellChecker spellChecker;
-
-   public TextEditor() {
-      spellChecker = new SpellChecker();
-   }
-}
-
-What we've done here is, create a dependency between the TextEditor and the
- SpellChecker. In an inversion of control scenario, we would instead do something
-  like this:
-
-  public class TextEditor {
-   private SpellChecker spellChecker;
-
-   public TextEditor(SpellChecker spellChecker) {
-      this.spellChecker = spellChecker;
-   }
-}
-
-Here, the TextEditor should not worry about SpellChecker implementation.
- The SpellChecker will be implemented independently and will be provided to
-  the TextEditor at the time of TextEditor instantiation.
-   This entire procedure is controlled by the Spring Framework.
-
-   Dependency Injection Type:
-   1.Constructor-based dependency injection
-    Constructor-based DI is accomplished when the container invokes a class constructor
-     with a number of arguments, each representing a dependency on the other class.
-
-   2.Setter-based dependency injection
-    Setter-based DI is accomplished by the container calling setter methods on
-     your beans after invoking a no-argument constructor or no-argument static
-      factory method to instantiate your bean.
-
-      It is a good to use constructor arguments for mandatory dependencies
-       and setters for optional dependencies.
+    hint: You will come across two situations
+     (a) Passing direct values of the collection and
+     (b) Passing a reference of a bean as one of the collection elements.
  */
