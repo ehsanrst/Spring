@@ -7,12 +7,13 @@ public class TextEditor {
         return spellChecker;
     }
 
+    // a setter method to inject the dependency
     public void setSpellChecker(SpellChecker spellChecker) {
         System.out.println("Inside setSpellChecker!");
         this.spellChecker = spellChecker;
     }
 
-    public void spellChek() {
+    public void spellCheck() {
         spellChecker.checkSpelling();
     }
 }

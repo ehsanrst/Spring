@@ -5,9 +5,12 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="textEditor" class="com.Dotin.TextEditor">
-        <property name="spellChecker" ref="spellChecker"/>
+        <property name="spellChecker">
+            <bean id="spellChecker" class="com.Dotin.SpellChecker"></bean>
+        </property>
     </bean>
 
-    <bean id="spellChecker" class="com.Dotin.SpellChecker"></bean>
-
 </beans>
+
+        <!--There is the configuration file Beans.xml which has configuration
+         for the setter-based injection but using inner beans-->
