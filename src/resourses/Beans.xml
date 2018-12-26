@@ -4,8 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean>
-
+    <bean id="helloWorld" class="com.Dotin.HelloWorld">
+        <property name="message" value="Hello Datin!"/>
     </bean>
+
+    <bean id="cStartEventHandler" class="com.Dotin.CStartEventHandler"/>
+    <bean id="cStopEventHandler" class="com.Dotin.CStopEventHandler"/>
 
 </beans>
