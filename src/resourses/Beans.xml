@@ -8,6 +8,9 @@
     <!--To turn on Annotation wiring-->
     <context:annotation-config/>
 
-    <!-- bean definitions go here -->
+    <bean id="helloWorld" class="com.Dotin.HelloWorld"
+          init-method="init" destroy-method="destroy">
+        <property name="message" value="Hello Dotin!"/>
+    </bean>
 
 </beans>
