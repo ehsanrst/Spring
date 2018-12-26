@@ -8,6 +8,16 @@
     <!--To turn on Annotation wiring-->
     <context:annotation-config/>
 
-    <!-- bean definitions go here -->
+    <bean id="profile" class="com.Dotin.Profile"></bean>
+
+    <bean id="student1" class="com.Dotin.Student">
+        <property name="name" value="Ali"/>
+        <property name="age" value="21"/>
+    </bean>
+
+    <bean id="student2" class="com.Dotin.Student">
+        <property name="name" value="Ehsan"/>
+        <property name="age" value="27"/>
+    </bean>
 
 </beans>
