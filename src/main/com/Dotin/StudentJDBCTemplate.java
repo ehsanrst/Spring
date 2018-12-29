@@ -1,6 +1,7 @@
 package com.Dotin;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
 import javax.sql.DataSource;
 import java.util.List;
 
@@ -15,6 +16,12 @@ public class StudentJDBCTemplate implements StudentDAO {
     public void setDataSource(DataSource ds) {
         this.dataSource = ds;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+    }
+
+    //create table
+    public void sqlExecution(String sql) {
+        jdbcTemplateObject.execute(sql);
+        System.out.println("Create Table!");
     }
 
     //insert (.update)
@@ -54,3 +61,15 @@ public class StudentJDBCTemplate implements StudentDAO {
         System.out.println("Update Record with ID = " + id);
     }
 }
+
+/*
+Executing SQL statements:
+    Querying for an integer : .queryForInt(sql)
+    Querying for a long : .queryForLong(sql)
+    A simple query using a bind variable : .queryForInt(sql, new Object[]{10})
+    Querying for a String : .queryForObject(sql, new Object[]{10}, String.class)
+    Inserting a row into the table : .update(sql, new Object[]{"Zara", 11})
+    Updating a row into the table : .update(sql, new Object[]{"Zara", 10})
+    Deleting a row from the table : .update(sql, new Object[]{20} )
+    Executing DDL Statements : .execute(sql)
+ */

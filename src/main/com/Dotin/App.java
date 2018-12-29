@@ -16,6 +16,12 @@ public class App {
                 (StudentJDBCTemplate) context.getBean("studentJDBCTemplate");
 
         //create
+        System.out.println("------Create Table------");
+        String createSql = "create table Student(ID int PRIMARY KEY AUTO_INCREMENT," +
+                " NAME varchar(20) not null, AGE int not null);";
+        studentJDBCTemplate.sqlExecution(createSql);
+
+        //insert
         System.out.println("------Record Creation------");
         studentJDBCTemplate.create("Ehsan", 27);
         studentJDBCTemplate.create("Ali", 15);

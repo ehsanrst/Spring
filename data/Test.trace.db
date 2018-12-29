@@ -92,3 +92,9 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/e.r
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:350)
 	... 31 more
+2018-12-29 15:53:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE STUDENT( ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT[*] , NAME VARCHAR(20) NOT NULL, AGE INT NOT NULL ); "; expected "CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Student( ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT , NAME VARCHAR(20) NOT NULL, AGE INT NOT NULL ); [42001-197]
+2018-12-29 15:56:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+Drop Table Student [42102-197]
