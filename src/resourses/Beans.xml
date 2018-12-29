@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean>
+    <aop:config>
+        <aop:aspect id="log" ref="logging">
+            <aop:pointcut id="selectAll"
+                          expression="execution(* com.Dotin.*.*(..))"/>
+            <aop:before pointcut-ref="selectAll" method="beforeAdvice"/>
+            <aop:after pointcut-ref="selectAll" method="afterAdvice"/>
+            <aop:after-returning pointcut-ref="selectAll"
+                                 returning="retVal" method="afterReturningAdvice"/>
+            <aop:after-throwing pointcut-ref="selectAll"
+                                throwing="ex" method="afterThrowingAdvice"/>
+        </aop:aspect>
+    </aop:config>
 
+    <bean id="student" class="com.Dotin.Student">
+        <property name="name" value="Ehsan"/>
+        <property name="age" value="27"/>
     </bean>
 
+    <bean id="logging" class="com.Dotin.Logging"/>
 </beans>
+
+        <!--you can define your pointcut to narrow down your execution by
+         replacing stars (*) in pointcut definition with the actual class and method
+          names.
+           Like:
+            <aop:pointcut id = "selectAll"
+            expression = "execution(* com.Datin.Student.getName(..))"/>-->
