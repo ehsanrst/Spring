@@ -1,13 +1,15 @@
 package com.Dotin;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 /*
-Log4j
+Jakarta Commons Logging (JCL) API
  */
 public class App {
-    static Logger log = Logger.getLogger(App.class.getName());
+    static Log log = LogFactory.getLog(App.class.getName());
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
@@ -20,6 +22,8 @@ public class App {
 }
 
 /*
-We need create  log4j.properties which defines the standard rules required
- for Log4J to produce log messages in resource directory.
+Alternatively you can use Jakarta Commons Logging (JCL) API to generate
+ a log in your Spring application.
+
+ We need to add commons-logging dependency.
  */
