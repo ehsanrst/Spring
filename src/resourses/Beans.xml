@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean>
-
+    <bean id="helloSpring" class="com.Dotin.HelloSpring">
+        <property name="message" value="Hello Spring Log4j"/>
     </bean>
 
 </beans>
